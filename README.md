@@ -66,4 +66,4 @@
 - 本项目仅供编程学习/测试使用
 - 请在国家法律法规和校方/公司相关原则下使用
 - 开发者不对任何下载者和使用者的任何行为负责
-- 程序使用的所有信息均利用 Github 的 [Encrypted secrets](https://docs.github.com/en/actions/security-guides/encrypted-secrets) 加密，如果下载者和使用者通过上文中描述的“直接修改[这个yml文件](/.github/workflows/RunFunction.yml)”的方法导致任何个人信息泄露，开发者不对此负责。开发者已经提供使用Github 的 [Encrypted secrets](https://docs.github.com/en/actions/security-guides/encrypted-secrets) 加密的方法。
+- 程序使用的所有信息均利用 Github 的 [Encrypted secrets](https://docs.github.com/en/actions/security-guides/encrypted-secrets) 加密，如果下载者和使用者通过上文中描述的“直接修改[这个yml文件](/.github/workflows/RunFunction.yml)”的方法导致任何个人信息泄露，开发者不对此负责。开发者已经提供使用 Github 的 [Encrypted secrets](https://docs.github.com/en/actions/security-guides/encrypted-secrets) 加密的方法。
