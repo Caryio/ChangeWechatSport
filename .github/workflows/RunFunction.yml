@@ -1,0 +1,28 @@
+name: 修改微信步数
+
+on:
+  workflow_dispatch:
+
+jobs: 
+  ChangBuShu: 
+    runs-on: ubuntu-latest
+    if: github.event.repository.owner.id == github.event.sender.id
+    steps:
+    - name: checkout
+      uses: actions/checkout@v2
+      
+    - name: Set up Python 3.9
+      uses: actions/setup-python@v1
+      with:
+        python-version: 3.9
+        
+    - name: 安装环境
+      run: pip install -r ./requirements.txt
+      
+    - name: 修改步数
+      run: python3 changebushu_Action.py
+      env:
+        USER_PHONE: ${{ secrets.USER_PHONE }}
+        USER_PWD: ${{ secrets.USER_PWD }}
+        STEP: ${{ secrets.STEP }}
+      
