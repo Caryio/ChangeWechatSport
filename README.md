@@ -57,13 +57,13 @@
     </tr>
    </table>
    
-   （`USER_PHONE`是注册Zepp Life app的手机号，`USER_PWD`是账号密码，`STEP_MIN`必须小于`STEP_MAX`，最后修改的步数为二者之间随机数）
+   （`USER_PHONE`是注册Zepp Life app的手机号，`USER_PWD`是账号密码，**`STEP_MIN`必须小于`STEP_MAX`**，最后修改的步数为二者之间随机数）
    
-   4. 然后到`changebushu_Action.py`里选择到底需要确切还是随机：
+   4. 然后到`changebushu_Action.py`里选择到底需要确切还是随机，以下两种二选一，前者步数修改随机，后者步数修改确切。记得把另一句注释掉：
 
-   > `step = str(randint(int(os.environ['STEP_MIN']), int(os.environ['STEP_MAX'])))`想要步数修改随机，留下这一句，注释掉另一句
-   
-   > `step = os.environ['STEP']`想要步数修改确切，留下这一句，注释掉另一句
+   > `step = str(randint(int(os.environ['STEP_MIN']), int(os.environ['STEP_MAX'])))`
+   >
+   > `step = os.environ['STEP']`
 
    确认一切无误就可以去`Actions`里`Run workflow`
    
@@ -73,8 +73,14 @@
   1. 下载`changebushu.py`
   2. 登录[阿里云](https://tianchi.aliyun.com/notebook-ai "不需要magic network")并进入到CPU或者GPU环境，在里面上传`changebushu.py`
   3. 修改用户登录手机号`user`和密码`password`，一定要是注册`Zepp Life app`的
-  4. 修改步数`step`，尽量保持在`10000~12000`之间。保存修改后的`.py`文件
-  5. 新建一个`terminal`
+  4. 修改步数，以下两种二选一，前者步数修改确切，后者步数修改随机。记得把另一句注释掉：
+  > `step = ''`
+  >
+  > `step = str(randint(10121, 12302))`
+  > **（确保前面的数字小于后面的数字）**
+  
+  保存修改后的`.py`文件
+  6. 新建一个`terminal`
   ```python
   python3 changebushu.py
   ```
@@ -84,7 +90,12 @@
   1. 在GoogleColab新建一个`.ipynb`文件，点击`+Code`增加一个代码块（一个就够了！）
   2. 把`changebushu.py`里面的代码全部复制进这一个代码块里
   3. 修改用户登录手机号`user`和密码`password`，一定要是注册`Zepp Life app`的
-  4. 修改步数`step`，尽量保持在`10000~12000`之间
+  4. 修改步数，以下两种二选一，前者步数修改确切，后者步数修改随机。记得把另一句注释掉：
+  > `step = ''`
+  >
+  > `step = str(randint(10121, 12302))`
+  > **（确保前面的数字小于后面的数字）**
+
   5. 直接运行这个代码块即可
 ## 注意事项
 * 不保证一定成功，出问题概不负责嗷:innocent:
@@ -97,6 +108,7 @@
   - **`v0.1`** 2022.5.11：第一次上传，添加阿里云的使用方法
   - 2022.7.16：添加 Google Colab 的使用方法；部分代码修改
   - **`v0.2`** 2022.7.17：添加 Github Action 的使用方法；重写`README.md`；部分代码修改
+  - **`v0.3`** 2022.7.21：增加随机步数选择
 
 ## 声明
 - 本项目仅供编程学习/测试使用
