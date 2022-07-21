@@ -107,5 +107,5 @@ if __name__ == "__main__":
     user = os.environ['USER_PHONE']
     password = os.environ['USER_PWD']
     step = str(randint(int(os.environ['STEP_MIN']), int(os.environ['STEP_MAX'])))
-    # step = str(randint(10123, 12302))  # 范围内取随机数， 前面不但能大于后面的数
+    # step = str(randint(10123, 12302)) 
     main()
