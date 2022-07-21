@@ -59,7 +59,13 @@
    
    （`USER_PHONE`是注册Zepp Life app的手机号，`USER_PWD`是账号密码，`STEP_MIN`必须小于`STEP_MAX`，最后修改的步数为二者之间随机数）
    
-   4. 然后到`changebushu_Action.py`里选择到底需要确切还是随机。确认一切无误就可以去`Actions`里`Run workflow`
+   4. 然后到`changebushu_Action.py`里选择到底需要确切还是随机：
+
+   > `step = str(randint(int(os.environ['STEP_MIN']), int(os.environ['STEP_MAX'])))`想要步数修改随机，留下这一句，注释掉另一句
+   
+   > `step = os.environ['STEP']`想要步数修改确切，留下这一句，注释掉另一句
+
+   确认一切无误就可以去`Actions`里`Run workflow`
    
 **如果不想设置 secrets 或者看了上面内容依然设置不好，*请先看[声明第四条](#声明)*，然后自己决定要不要使用以下方法：直接修改[这个yml文件](/.github/workflows/RunFunction.yml)，把`${{ secrets.USER_PHONE }}`、`${{ secrets.USER_PWD }}`、`${{ secrets.STEP }}`替换掉，然后直接去 Actions 里 Run workflow 。但是要注意因为直接fork的仓库默认是公开`public`状态，所以你的个人隐私信息可能暴露！开发者不对此负任何责任。~~其实从这个方面来说还是设置secrets更香:stuck_out_tongue_closed_eyes:~~** 
 
