@@ -1,5 +1,5 @@
 # 修改微信运动步数
-通过Github Action/[阿里云](https://tianchi.aliyun.com/notebook-ai "不需要magic network")/[Google Colab](https://colab.research.google.com/ "需要magic network")使用**Zepp Life** app（*原**小米运动**app*）修改微信步数，2022.7.17亲测成功:raised_eyebrow:
+通过Github Action/[阿里云](https://tianchi.aliyun.com/notebook-ai "不需要magic network")/[Google Colab](https://colab.research.google.com/ "需要magic network")使用**Zepp Life** app（*原**小米运动**app*）修改微信步数，2022.7.21亲测成功:raised_eyebrow:
 
 [![修改微信步数](https://github.com/Caryio/ZeppLifeChangeWechatSport/actions/workflows/RunFunction.yml/badge.svg?branch=main)](https://github.com/Caryio/ZeppLifeChangeWechatSport/actions/workflows/RunFunction.yml)
 ## 目录
@@ -19,17 +19,47 @@
 ### 通过GithubAction
    1. Fork本仓库
    2. 在你自己Fork的仓库进行设置`Settings - Actions - General - Allow all actions and reusable workflows`，别忘了`save`
-   3. 然后`Settings - Secrets - Actions - New repository secret`，按下面例子建立三个`secrets`：
+   3. 然后`Settings - Secrets - Actions - New repository secret`，按下面例子新建几个`secrets`：
+
+   <table>
+    <tr>
+     <td colspan="2">确切步数修改</td>
+     <td colspan="2">随机步数修改</td>
+    </tr>
+    <tr>
+     <td>Name</td>
+     <td>Value</td>
+     <td>Name</td>
+     <td>Value</td>
+    </tr>
+    <tr>
+     <td>USER_PHONE</td>
+     <td>18899996666</td>
+     <td>USER_PHONE</td>
+     <td>18899996666</td>
+    </tr>
+    <tr>
+     <td>USER_PWD</td>
+     <td>abc123</td>
+     <td>USER_PWD</td>
+     <td>abc123</td>
+    </tr>
+    <tr>
+     <td>STEP</td>
+     <td>10000</td>
+     <td>STEP_MIN</td>
+     <td>10000</td>
+    </tr>
+    <tr>
+     <td colspan="2">------</td>
+     <td>STEP_MAX</td>
+     <td>12000</td>
+    </tr>
+   </table>
    
-   |Name|Value|
-   |---|---
-   |USER_PHONE|18899996666|
-   |USER_PWD|abc123|
-   |STEP|10000|
+   （`USER_PHONE`是注册Zepp Life app的手机号，`USER_PWD`是账号密码，`STEP_MIN`必须小于`STEP_MAX`，最后修改的步数为二者之间随机数）
    
-   （`USER_PHONE`是注册Zepp Life app的手机号，`USER_PWD`是账号密码，`STEP`步数最好不要太多）
-   
-   4. 确认一切无误就可以去`Actions`里`Run workflow`
+   4. 然后到`changebushu_Action.py`里选择到底需要确切还是随机。确认一切无误就可以去`Actions`里`Run workflow`
    
 **如果不想设置 secrets 或者看了上面内容依然设置不好，*请先看[声明第四条](#声明)*，然后自己决定要不要使用以下方法：直接修改[这个yml文件](/.github/workflows/RunFunction.yml)，把`${{ secrets.USER_PHONE }}`、`${{ secrets.USER_PWD }}`、`${{ secrets.STEP }}`替换掉，然后直接去 Actions 里 Run workflow 。但是要注意因为直接fork的仓库默认是公开`public`状态，所以你的个人隐私信息可能暴露！开发者不对此负任何责任。~~其实从这个方面来说还是设置secrets更香:stuck_out_tongue_closed_eyes:~~** 
 
