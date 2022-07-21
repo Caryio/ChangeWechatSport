@@ -25,4 +25,6 @@ jobs:
         USER_PHONE: ${{ secrets.USER_PHONE }}
         USER_PWD: ${{ secrets.USER_PWD }}
         STEP: ${{ secrets.STEP }}
+        STEP_MIN: ${{ secrets.STEP_MIN }}
+        STEP_MAX: ${{ secrets.STEP_MAX }}
       
