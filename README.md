@@ -17,7 +17,7 @@
 ## 准备工作
 使用本仓库需要 Zepp Life app（*原小米运动app*），请务必把 Zepp Life 注册好，设置好，与微信的同步/第三方接入什么的都弄好再往下看
 
-  <p align="right">（<a href="https://github.com/Caryio/ChangeWechatSport/edit/main/README.md#%E4%BF%AE%E6%94%B9%E5%BE%AE%E4%BF%A1%E8%BF%90%E5%8A%A8%E6%AD%A5%E6%95%B0">回到顶部</a>）</p>
+  <p align="right">（<a href="https://github.com/Caryio/ChangeWechatSport#%E4%BF%AE%E6%94%B9%E5%BE%AE%E4%BF%A1%E8%BF%90%E5%8A%A8%E6%AD%A5%E6%95%B0">回到顶部</a>）</p>
   
 ## 使用指南
 ### 通过GithubAction
@@ -72,7 +72,7 @@
    
 **如果不想设置 secrets 或者看了上面内容依然设置不好，*请先看[声明第四条](#声明)*，然后自己决定要不要使用以下方法：直接修改[这个yml文件](/.github/workflows/RunFunction.yml)，把`${{ secrets.USER_PHONE }}`、`${{ secrets.USER_PWD }}`、`${{ secrets.STEP }}`等相关参数设置好，然后直接去 Actions 里 Run workflow 。但是要注意因为直接 fork 的仓库默认是公开`public`状态，所以你的个人隐私信息可能暴露！开发者不对此负任何责任。~~其实从这个方面来说还是设置secrets更香:stuck_out_tongue_closed_eyes:~~** 
 
-  <p align="right">（<a href="https://github.com/Caryio/ChangeWechatSport/edit/main/README.md#%E4%BF%AE%E6%94%B9%E5%BE%AE%E4%BF%A1%E8%BF%90%E5%8A%A8%E6%AD%A5%E6%95%B0">回到顶部</a>）</p>
+  <p align="right">（<a href="https://github.com/Caryio/ChangeWechatSport#%E4%BF%AE%E6%94%B9%E5%BE%AE%E4%BF%A1%E8%BF%90%E5%8A%A8%E6%AD%A5%E6%95%B0">回到顶部</a>）</p>
   
 #### GitHubAction设置每日定时执行
 直接修改[这个yml文件](/.github/workflows/RunFunction.yml)，把以下两句解除注释：
@@ -86,7 +86,7 @@ schedule:
 修改里面的时间可以自己确定运行时间，要注意的是里面的数字指的是 UTC 时间，换算成北京时间要加8h。
 
 关于 GitHub Action 定时执行，请看[与此相关的 GitHub 官方文档](https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#schedule)。
-  <p align="right">（<a href="https://github.com/Caryio/ChangeWechatSport/edit/main/README.md#%E4%BF%AE%E6%94%B9%E5%BE%AE%E4%BF%A1%E8%BF%90%E5%8A%A8%E6%AD%A5%E6%95%B0">回到顶部</a>）</p>
+  <p align="right">（<a href="https://github.com/Caryio/ChangeWechatSport#%E4%BF%AE%E6%94%B9%E5%BE%AE%E4%BF%A1%E8%BF%90%E5%8A%A8%E6%AD%A5%E6%95%B0">回到顶部</a>）</p>
 
 ### 通过阿里云
   1. 下载`changebushu.py`
@@ -104,7 +104,7 @@ step = str(randint(10121, 12302))
   ```bash
   python3 changebushu.py
   ```
-  <p align="right">（<a href="https://github.com/Caryio/ChangeWechatSport/edit/main/README.md#%E4%BF%AE%E6%94%B9%E5%BE%AE%E4%BF%A1%E8%BF%90%E5%8A%A8%E6%AD%A5%E6%95%B0">回到顶部</a>）</p>
+  <p align="right">（<a href="https://github.com/Caryio/ChangeWechatSport#%E4%BF%AE%E6%94%B9%E5%BE%AE%E4%BF%A1%E8%BF%90%E5%8A%A8%E6%AD%A5%E6%95%B0">回到顶部</a>）</p>
 
 ### 通过GoogleColab
 *阿里云要到期了:laughing:不想继续掏钱所以找到了Google Colab*:zany_face:
@@ -120,7 +120,7 @@ step = str(randint(10121, 12302))
 
   5. 直接运行这个代码块即可
   
-  <p align="right">（<a href="https://github.com/Caryio/ChangeWechatSport/edit/main/README.md#%E4%BF%AE%E6%94%B9%E5%BE%AE%E4%BF%A1%E8%BF%90%E5%8A%A8%E6%AD%A5%E6%95%B0">回到顶部</a>）</p>
+  <p align="right">（<a href="https://github.com/Caryio/ChangeWechatSport#%E4%BF%AE%E6%94%B9%E5%BE%AE%E4%BF%A1%E8%BF%90%E5%8A%A8%E6%AD%A5%E6%95%B0">回到顶部</a>）</p>
   
 ## 注意事项
 * 不保证一定成功，出问题概不负责嗷:innocent:
@@ -128,7 +128,7 @@ step = str(randint(10121, 12302))
 * Github Action 设置`secrets`时注意要按照上文的步骤弄，***不要***先设置`Environments`然后在里面加变量
 * 实在设置不好可以看上文中不想设置`secrets`如何解决，但是**请先看[声明第四条](#声明)**
 
-  <p align="right">（<a href="https://github.com/Caryio/ChangeWechatSport/edit/main/README.md#%E4%BF%AE%E6%94%B9%E5%BE%AE%E4%BF%A1%E8%BF%90%E5%8A%A8%E6%AD%A5%E6%95%B0">回到顶部</a>）</p>
+  <p align="right">（<a href="https://github.com/Caryio/ChangeWechatSport#%E4%BF%AE%E6%94%B9%E5%BE%AE%E4%BF%A1%E8%BF%90%E5%8A%A8%E6%AD%A5%E6%95%B0">回到顶部</a>）</p>
   
 ## 更新日志
 *删除了很多 commits 记录，都快被我删没了:rofl:所以在这稍微记录一下*
@@ -138,7 +138,7 @@ step = str(randint(10121, 12302))
   - **`v0.3`** 2022.7.21：增加随机步数选择
   - 2022.7.22：增加GitHub Action每日自动执行
   
-    <p align="right">（<a href="https://github.com/Caryio/ChangeWechatSport/edit/main/README.md#%E4%BF%AE%E6%94%B9%E5%BE%AE%E4%BF%A1%E8%BF%90%E5%8A%A8%E6%AD%A5%E6%95%B0">回到顶部</a>）</p>
+    <p align="right">（<a href="https://github.com/Caryio/ChangeWechatSport#%E4%BF%AE%E6%94%B9%E5%BE%AE%E4%BF%A1%E8%BF%90%E5%8A%A8%E6%AD%A5%E6%95%B0">回到顶部</a>）</p>
 
 ## 声明
 - 本项目仅供编程学习/测试使用
@@ -146,4 +146,4 @@ step = str(randint(10121, 12302))
 - 开发者不对任何下载者和使用者的任何行为负责
 - 程序使用的所有信息均利用 Github 的 [Encrypted secrets](https://docs.github.com/en/actions/security-guides/encrypted-secrets) 加密，如果下载者和使用者通过上文中描述的“直接修改[这个yml文件](/.github/workflows/RunFunction.yml)”的方法导致任何个人信息泄露，开发者不对此负责。开发者已经提供使用 Github 的 [Encrypted secrets](https://docs.github.com/en/actions/security-guides/encrypted-secrets) 加密的方法。
 
-  <p align="right">（<a href="https://github.com/Caryio/ChangeWechatSport/edit/main/README.md#%E4%BF%AE%E6%94%B9%E5%BE%AE%E4%BF%A1%E8%BF%90%E5%8A%A8%E6%AD%A5%E6%95%B0">回到顶部</a>）</p>
+  <p align="right">（<a href="https://github.com/Caryio/ChangeWechatSport#%E4%BF%AE%E6%94%B9%E5%BE%AE%E4%BF%A1%E8%BF%90%E5%8A%A8%E6%AD%A5%E6%95%B0">回到顶部</a>）</p>
