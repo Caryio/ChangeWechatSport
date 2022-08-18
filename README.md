@@ -1,6 +1,6 @@
 # 修改微信运动步数
 通过Github Action/[阿里云](https://tianchi.aliyun.com/notebook-ai "不需要magic network")/[Google Colab](https://colab.research.google.com/ "需要magic network")使用 **Zepp Life** app（*原**小米运动**app*）修改微信步数，Github Action 可设置每日定时执行。
-> 2022.8.8亲测成功:ghost:
+> 2022.8.18亲测成功:ghost:
 
 [![修改微信步数](https://github.com/Caryio/ZeppLifeChangeWechatSport/actions/workflows/RunFunction.yml/badge.svg?branch=main)](https://github.com/Caryio/ZeppLifeChangeWechatSport/actions/workflows/RunFunction.yml)
 ## 目录
