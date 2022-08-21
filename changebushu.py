@@ -109,16 +109,16 @@ def get_app_token(login_token):
  
 
 def main_handler(event, context):
-    global user
-    global password
-    global step
-    evt = json.loads(event)
-    temp = evt["payload"].split(',')
-    user = temp[0]
-    password = temp[1]
-    # 如果存在第三个参数，可以同步一个低数的
-    if len(temp) > 2:
-        step = str(randint(5000, 6000))
+    # global user
+    # global password
+    # global step
+    # evt = json.loads(event)
+    # temp = evt["payload"].split(',')
+    # user = temp[0]
+    # password = temp[1]
+    # # 如果存在第三个参数，可以同步一个低数的
+    # if len(temp) > 2:
+    #     step = str(randint(5000, 6000))
     return main()    
 
 if __name__ == '__main__':

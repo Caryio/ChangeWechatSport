@@ -107,6 +107,13 @@ step = str(randint(10121, 12302))
   ```
 <p align="right">（<a href="#修改微信运动步数">回到顶部</a>）</p>
 
+### 通过阿里云serverless进行多个人的定时任务同步
+  1. 下载`changebushu.py`,并将112-121行注释放开
+  2. 登录阿里云的[serverless](https://fcnext.console.aliyun.com/overview)
+  3. 添加服务-添加函数-上传，层使用包含request的包即可
+  4. 触发器选定时任务，event填"账号,密码"即可，例如：13812341234,xxxxxx
+  5. 如果需要渐进式，例如中午同步5000，晚上同步10000，只需要添加第三个参数(任意值)即可，例如: 13812341234,xxxx,1
+
 ### 通过GoogleColab
 *阿里云要到期了:laughing:不想继续掏钱所以找到了Google Colab*:zany_face:
   1. 在GoogleColab新建一个`.ipynb`文件，点击`+Code`增加一个代码块（一个就够了！）
