@@ -114,9 +114,9 @@ const set_step = async (t,today,app_token,userId,step) => {
 }
 const main = async ()=>{
     // TODO:修改此处
-    const step = 16000
-    const account = ''
-    const password = ''
+    const step = 100
+    const account = '18702604734'
+    const password = 'wuxing5285218'
     const code = await get_login_code(account,password)
     if (!code) return 'login fail'
     const {login_token, userId} = await get_login_token(code);

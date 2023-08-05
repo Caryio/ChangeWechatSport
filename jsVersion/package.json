@@ -11,7 +11,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@xing.wu/axios": "^1.0.9",
-    "dayjs": "^1.11.5"
+    "@xing.wu/axios": "^1.1.0",
+    "dayjs": "^1.11.7"
   }
 }
