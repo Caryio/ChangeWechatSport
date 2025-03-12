@@ -1,14 +1,15 @@
 import requests, time, re, json, os
 from random import randint
- 
+
 headers = {
     'User-Agent': 'Dalvik/2.1.0 (Linux; U; Android 9; MI 6 MIUI/20.6.18)'
 }
- 
+
 user = ''
 password = ''
 # step = ''
-step = str(randint(10121, 12302))
+# 判断当前时间是中午还是下午
+step = str(randint(15000, 16000))
  
 def get_code(location):
     code_pattern = re.compile("(?<=access=).*?(?=&)")
@@ -16,7 +17,19 @@ def get_code(location):
     return code
 
 def login(user, password):
-    url1 = "https://api-user.huami.com/registrations/+86" + user + "/tokens"
+    print(user)
+    print(password)
+    print(step)
+    # 判断是否是手机
+    is_phone = False
+    if re.match(r'\d{11}', user):
+        is_phone = True
+    if is_phone:
+        url1 = "https://api-user.huami.com/registrations/+86" + user + "/tokens"
+    else:
+        url1 = "https://api-user.huami.com/registrations/" + user + "/tokens"
+
+    # url1 = "https://api-user.huami.com/registrations/+86" + user + "/tokens"
     headers = {
         "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8",
         "User-Agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 14_7_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.2"
@@ -28,6 +41,9 @@ def login(user, password):
         "token": "access"
     }
     r1 = requests.post(url1, data=data1, headers=headers, allow_redirects=False)
+    # 判断结果
+    # if r1.status_code != 200:
+    #     return 0, 0
     print(r1.text)
     location = r1.headers["Location"]
     # print(location)
@@ -39,16 +55,33 @@ def login(user, password):
     print(code)
  
     url2 = "https://account.huami.com/v2/client/login"
-    data2 = {
-        "app_name": "com.xiaomi.hm.health",
-        "app_version": "4.6.0",
-        "code": f"{code}",
-        "country_code": "CN",
-        "device_id": "2C8B4939-0CCD-4E94-8CBA-CB8EA6E613A1",
-        "device_model": "phone",
-        "grant_type": "access_token",
-        "third_name": "huami_phone",
-    }
+    if is_phone:
+        data2 = {
+            "app_name": "com.xiaomi.hm.health",
+            "app_version": "4.6.0",
+            "code": f"{code}",
+            "country_code": "CN",
+            "device_id": "2C8B4939-0CCD-4E94-8CBA-CB8EA6E613A1",
+            "device_model": "phone",
+            "grant_type": "access_token",
+            "third_name": "huami_phone",
+        }
+    else:
+        data2 = {
+            "allow_registration=": "false",
+            "app_name": "com.xiaomi.hm.health",
+            "app_version": "6.3.5",
+            "code": f"{code}",
+            "country_code": "CN",
+            "device_id": "2C8B4939-0CCD-4E94-8CBA-CB8EA6E613A1",
+            "device_model": "phone",
+            "dn": "api-user.huami.com%2Capi-mifit.huami.com%2Capp-analytics.huami.com",
+            "grant_type": "access_token",
+            "lang": "zh_CN",
+            "os_version": "1.5.0",
+            "source": "com.xiaomi.hm.health",
+            "third_name": "email",
+        }
     r2 = requests.post(url2, data=data2, headers=headers).json()
     login_token = r2["token_info"]["login_token"]
     print("login_token获取成功")
@@ -63,7 +96,7 @@ def main():
     login_token = 0
     login_token, userid = login(user, password)
     if login_token == 0:
-        print("登陆失败")
+        print("login fail")
         return "login fail"
 
     t = get_time()
@@ -110,9 +143,21 @@ def get_app_token(login_token):
  
 
 def main_handler(event, context):
+    global user
+    global password
+    global step
+    evt = json.loads(event)
+    temp = evt["payload"].split(',')
+    user = temp[0]
+    # user = "18970208110"
+    password = temp[1]
+    # password = "czy353584"
+    if len(temp) > 2:
+        step = str(randint(5000, 6000))
     return main()
- 
+    
+def main1():
+    return "走了main"
 
 if __name__ == '__main__':
-    main()
-
+    main1()
